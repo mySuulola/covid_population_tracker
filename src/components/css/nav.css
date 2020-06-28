@@ -1,0 +1,45 @@
+.fa {
+  color: #fff;
+  margin-left: 50px;
+  font-size: 1.2em;
+  font-weight: 100;
+}
+
+#topBar {
+  max-height: 40px;
+  background-color: #232546;
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+#displayBar {
+  max-height: 70px;
+  background: #2f3258;
+
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+#displayBar img {
+    max-height: 40px;
+}
+
+select.custom-select {
+    background-color: rgb(35, 37, 66);
+    width: 150px;
+    color: #fff;
+    border: 0;
+}
+
+button.deposit  {
+    background-color: #60af5a !important;
+    color: white;
+}
+
+span#navCircle {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+}
