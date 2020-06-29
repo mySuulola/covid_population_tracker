@@ -1,5 +1,4 @@
 import { REGISTER_EVENT } from '../constants'
-import { IUser } from '../../model/user';
 
 const initialState: {
     events: Array<any>
