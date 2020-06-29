@@ -5,7 +5,7 @@ import { Button, ButtonModal } from '../common/Button';
 import AddEventModal from './AddEventModal';
 import { Login } from './Login';
 
-const Navbar = ({ user, score }) => {
+const Navbar = ({ user, events }) => {
     return (
         <nav className="navbar-light m-0">
             {/* TopBar */}
@@ -21,7 +21,7 @@ const Navbar = ({ user, score }) => {
                 </div>
                 <div className="col-4 pt-2 d-flex justify-content-end">
                     <p className="nav-item text-muted" >Live Event Count</p>
-                    <p className="nav-item text-white px-3" >{score}</p>
+                    <p className="nav-item text-white px-3" >{events.length}</p>
                 </div>
             </div>
 
@@ -74,8 +74,8 @@ const Navbar = ({ user, score }) => {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.userData,
-    score: state.score
+    user: state.authReducer.userData,
+    events: state.eventReducer.events
 })
 
 const mapDispatchToProps = null

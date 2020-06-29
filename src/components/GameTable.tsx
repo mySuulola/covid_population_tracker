@@ -13,8 +13,8 @@ const GameTable = ({ events }) => {
           <tr>
             <th scope="col">S/N</th>
             <th scope="col">Event Name</th>
-            <th scope="col">Organization Name</th>
-            <th scope="col">Location</th>
+            <th className="d-none d-md-table-cell" scope="col">Organization Name</th>
+            <th className="d-none d-md-table-cell" scope="col">Location</th>
             <th scope="col">Space Left</th>
             <th scope="col">Action</th>
           </tr>
@@ -24,8 +24,8 @@ const GameTable = ({ events }) => {
             <tr key={Math.random()}>
               <th scope="row">{i + 1}</th>
               <td>{event.eventName}</td>
-              <td>{event.organizationName}</td>
-              <td>{event.location}</td>
+              <td className="d-none d-md-table-cell">{event.organizationName}</td>
+              <td className="d-none d-md-table-cell">{event.location}</td>
               <td>{event.spaceLeft}</td>
               <td>
                 <Button className="btn" backgroundColor="transparent" textColor="white" borderColor="#e6bf49" actualText="Details" />
@@ -39,7 +39,7 @@ const GameTable = ({ events }) => {
 }
 
 const mapStateToProps = (state) => ({
-  events: state.events
+  events: state.eventReducer.events
 })
 
 const mapDispatchToProps = null

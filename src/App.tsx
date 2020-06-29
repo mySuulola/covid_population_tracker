@@ -6,16 +6,18 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  // useParams
 } from "react-router-dom";
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import storeReducer from './store/reducer/rootReducer'
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './store/reducer/rootReducer'
+import thunkMiddleware from 'redux-thunk';
 
-const store = createStore(storeReducer);
+
+
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 const App: React.FC = () => {
-  
+
   return (
     <Provider store={store}>
       <Router>
