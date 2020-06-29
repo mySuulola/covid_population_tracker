@@ -17,7 +17,7 @@ export const Login = (props) => {
         <div className="modal fade" id="login" tabIndex={-1} role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div style={{
-                    marginTop: '15vh',
+                    // marginTop: '15vh',
                     width: '350px',
                     backgroundColor: '#c9e4ff78'
                 }} className="modal-content p-5">
