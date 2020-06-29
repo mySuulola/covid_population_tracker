@@ -1,57 +1,48 @@
-import React, {useState} from 'react';
+import React  from 'react';
+import { connect } from 'react-redux';
+import { Button } from '../common/Button';
+import './css/GameTable.css'
 
 
-const data = [
-    0.1,0.2,0.3,0.3,0.4,0.3,0.34,0.6,
-    0.1,0.2,0.3,0.3,0.4,0.3,0.34,0.6,
-    0.1,0.2,0.3,0.3,0.4,0.3,0.34,0.6,
-];
+const GameTable = ({ events }) => {
 
-function GameTable() {
-
-    const [tableData, setTableData] = useState(data);
-
-    
-
-    return (
-        <div>
-            {tableData.map(item => (
-                 <th scope="col">#</th>
-            ))}
-            {/* 
-            <table class="table table-borderless table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-            
-            */}
-        </div>
-    )
+  return (
+    <div className="container mt-5">
+      <table className="table rounded table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">S/N</th>
+            <th scope="col">Event Name</th>
+            <th scope="col">Organization Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Space Left</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {events.map(event => (
+            <tr key={Math.random()}>
+              <th scope="row">1</th>
+              <td>{event.eventName}</td>
+              <td>{event.organizationName}</td>
+              <td>{event.location}</td>
+              <td>{event.spaceLeft}</td>
+              <td>
+                <Button className="btn" backgroundColor="transparent" textColor="white" borderColor="#e6bf49" actualText="Details" />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
 }
 
-export default GameTable
+const mapStateToProps = (state) => ({
+  events: state.events
+})
+
+const mapDispatchToProps = null
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameTable)

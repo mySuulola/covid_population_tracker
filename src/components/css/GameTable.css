@@ -1,5 +1,7 @@
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+  td, tr > th {
+    text-align: center;
+  }
+
+  table {
+    background-color: #7c7e97;
   }

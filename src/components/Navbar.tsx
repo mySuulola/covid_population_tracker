@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import logo from "../assets/images/logo.svg"
-// import bitcoin from "../assets/images/bit.png"
-// import eth from "../assets/images/eth.png"
 import './css/nav.css';
-import Button from '../common/Button';
+import { Button, ButtonModal } from '../common/Button';
+import AddEventModal from './AddEventModal';
+import { Login } from './Login';
 
-const Navbar = ({ user, score })  => {
+const Navbar = ({ user, score }) => {
     return (
         <nav className="navbar-light m-0">
             {/* TopBar */}
@@ -15,50 +14,61 @@ const Navbar = ({ user, score })  => {
                     <a href="/" className="mr-3 pt-2 text-muted" >About</a>
                     <a href="/" className="mr-3 pt-2 text-muted" >Twitter</a>
                     <div className="d-flex align-items-center">
-                    <span className="mr-2 mb-2" id="navCircle"></span>
-                    <a href="/" className="mr-3 mb-2 text-muted" >  Go Live</a>
+                        <span className="mr-2 mb-2" id="navCircle"></span>
+                        <a href="/" className="mr-3 mb-2 text-muted" >  Go Live</a>
                     </div>
                     <a href="/" className="mr-3 pt-2 text-muted" >Free Play</a>
                 </div>
                 <div className="col-4 pt-2 d-flex justify-content-end">
-                    <p className="nav-item text-muted" >Wagers All Time Score</p>
-    <p className="nav-item text-white px-3" >{score}</p>
+                    <p className="nav-item text-muted" >Live Event Count</p>
+                    <p className="nav-item text-white px-3" >{score}</p>
                 </div>
             </div>
 
             {/* DisplayBar */}
-            <div id="displayBar" className="card rounded-0 shadow-sm m-0 row justify-content-between pt-3">
-                <div className="ml-4 pb-3">
-                    <img className="img-fluid" src={logo} alt="roobot logo" />
+            <div id="displayBar" className="rounded-0 shadow-sm m-0 row justify-content-between pt-3">
+                <div className="col-12 col-lg-3 ml-4 pb-3 mt-2 justify-content-center">
+                    <h1 className="text-center">COVID-19 Population Check</h1>
                 </div>
 
-                <div className="d-flex justify-content-start" >
-                    <select className="custom-select mr-4">
-                        <option value="1" selected>
-                            Bitcion
+                <div className="col-12 col-lg-4 d-flex justify-content-center" >
+                    <select defaultValue="lagos" className="custom-select mr-4">
+                        <option value="lagos">
+                            Lagos
                         </option>
-                        <option value="3">
-                            ETH Wallet
+                        <option value="oyo">
+                            Oyo
                         </option>
                     </select>
-                    <button className="btn deposit">Deposit</button>
+                    <button className="btn deposit btn-sm">Search</button>
                 </div>
-                <div className="d-flex justify-content-end">
-                    { user.email !== "" ? (<div className="mt-2">
-                        <i className="fa fa-bell-slash"></i>
-                        <i className="fa fa-ellipsis-v 2x"></i>
-                    </div>) : (
-                            <div>
-                                <Button backgroundColor="transparent" textColor="white" borderColor="#e6bf49" actualText="Login"  />
-                                <Button backgroundColor="#e6bf49" textColor="#fff" borderColor="#fff" actualText="Sign Up"  />
-                               
-                            </div>
+                <div className="col-12 col-lg-4 d-flex justify-content-center py-2">
+                    {user.email !== "" ? (
+                        <div>
+                            <ButtonModal
+                                className="addEvent mx-2 btn"
+                                backgroundColor="transparent" textColor="white" borderColor="#e6bf49" actualText="Add Event" dataTarget="#addEventModal" />
 
+                            <AddEventModal />
+                            <Button
+                                className="mx-2 btn"
+                                backgroundColor="#e6bf49" textColor="#fff" borderColor="#fff" actualText="Log out" />
+                        </div>
+                    ) : (
+                            <div>
+                                <ButtonModal
+                                    className="login mx-2 btn"
+                                    dataTarget="#login"
+                                    backgroundColor="transparent" textColor="white" borderColor="#e6bf49" actualText="Login" />
+                                <Login />
+                                <ButtonModal
+                                    className="register mx-2 btn"
+                                    dataTarget="#registerModal"
+                                    backgroundColor="#e6bf49" textColor="#fff" borderColor="#fff" actualText="Sign Up" />
+                            </div>
                         )}
                 </div>
             </div>
-
-
         </nav>
     )
 }

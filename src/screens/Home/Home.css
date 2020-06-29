@@ -1,6 +1,7 @@
 #home {
     background-image: url('../../assets/images/space.jpg');
     min-height: 100vh;
+    min-width: 600px;
     background-size:cover;
   box-shadow:inset 0 0 0 1000px rgba(35, 37, 66, 0.9);
 }
