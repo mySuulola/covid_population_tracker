@@ -20,9 +20,9 @@ const GameTable = ({ events }) => {
           </tr>
         </thead>
         <tbody>
-          {events.map(event => (
+          {events.map((event, i) => (
             <tr key={Math.random()}>
-              <th scope="row">1</th>
+              <th scope="row">{i + 1}</th>
               <td>{event.eventName}</td>
               <td>{event.organizationName}</td>
               <td>{event.location}</td>
