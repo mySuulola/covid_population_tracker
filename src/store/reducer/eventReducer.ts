@@ -1,7 +1,7 @@
 import { REGISTER_EVENT } from '../constants'
 
 const initialState: {
-    events: Array<any>
+    events: Array<Object>
 } = {
     events: [
         { eventName: 'Night of Worship', organizationName: 'Worship Church', posterName: 'Seyi Peters', location: 'Ajah, Lagos', currentPopulationCount: 12, spaceLeft: 8 },
